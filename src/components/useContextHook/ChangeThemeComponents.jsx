@@ -19,7 +19,7 @@ const ChangeThemeComponents = () => {
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             variant="contained"
           >
-            Change Theme
+            Chang e Theme
           </Button>
         </div>
       </div>

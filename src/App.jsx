@@ -9,6 +9,7 @@ import UseRefHook from "./components/useRefHook/UseRefHook";
 import UseLayoutEffectHook from "./components/useLayoutEffectHook/UseLayoutEffectHook";
 import UseMemoHook from "./components/useMemoHook/UseMemoHook";
 import UseCallBackHook from "./components/useCallBackHook/UseCallBackHook";
+import DomManipulation from "./components/useRefHook/DomManipulation";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/usecontext" element={<UseContextHook />} />
         <Route path="/usereducer" element={<UseReducer />} />
         <Route path="/useref" element={<UseRefHook />} />
+        <Route path="/dommanipulation" element={<DomManipulation />} />
         <Route path="/uselayouteffect" element={<UseLayoutEffectHook />} />
         <Route path="/usememo" element={<UseMemoHook />} />
         <Route path="/usecallback" element={<UseCallBackHook />} />
