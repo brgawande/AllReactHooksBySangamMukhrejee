@@ -62,7 +62,7 @@ const UseContextHook = () => {
         <div className="dflex mt-4">
           <ChangeThemeComponents />
         </div>
-        <div className="dflex gap-10">
+        <div className="dflex flex-col sm:flex-row gap-0 sm:gap-10">
           <Login />
           <Register />
         </div>

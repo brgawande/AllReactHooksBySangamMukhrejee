@@ -3,6 +3,27 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
 const UseRefHook = () => {
+  const [mobileScreen, setMobileScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerHeight <= 768) {
+        setMobileScreen(true);
+      } else {
+        setMobileScreen(false);
+      }
+    };
+    handleResize();
+
+    // abb event listner laga dete hai jab bhi window resize hongi
+    window.addEventListener("resize", handleResize);
+
+    // the event listner is removed when the components unmounts to prevent memory leaks
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   function DisplayCode() {
     return (
       <div>
@@ -11,6 +32,21 @@ const UseRefHook = () => {
             {`useEffect(() => {
   a = a + 1;
   console.log(\`rerendering ...the value of a is \${a}\`);
+});`}
+          </pre>
+        </p>
+      </div>
+    );
+  }
+  function DisplayCode1() {
+    return (
+      <div>
+        <p>
+          <pre>
+            {`useEffect(() => {
+  a = a + 1;
+  console.log(\`rerendering ...
+  the value of a is \${a}\`);
 });`}
           </pre>
         </p>
@@ -53,7 +89,7 @@ const UseRefHook = () => {
           <span>let a = 1;</span> <br />
         </p>
         <div className="flex justify-start w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
-          <DisplayCode />
+          {mobileScreen ? <DisplayCode /> : <DisplayCode1 />}
         </div>
 
         <p className="px-6 sm:px-10 lg:px-20 text-left">
